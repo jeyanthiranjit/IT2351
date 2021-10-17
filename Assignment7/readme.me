@@ -1,0 +1,25 @@
+I would create another table called customers_audit, to track (audit) the customers table, like if anything or anyone modify it, then that will be recordced with an after trigger event. So whenever the customers_table is altered, there is going to be an entry in the customers_audit table.
+
+Fo that  I need to create a stored procedure to do the delete operation and then to create an event trigger for entering the details of actions which causes the delete operation. 
+
+First, I would specify the table from which I want to delete the customer information
+Second, use a condition to specify which rows to delete in the WHERE clause.
+
+the logic would be as follows:
+
+Create a new table customers_audit
+  has input as { customer id, first_name, last_name, actino_type, action time}
+
+Create a trigger 
+   after the delete operation is performed on customers table
+
+Create a stored procedure to do the delete function based on
+  customer_id
+
+end of stored procedure.
+----------------------------------
+Give some input to add as a new customer in the customers table
+
+Do the delte operation to verify if the row is being added to customers_audit table
+
+select the customers_audit table to see if the action is being recorded .
